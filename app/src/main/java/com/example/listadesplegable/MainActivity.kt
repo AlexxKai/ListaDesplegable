@@ -49,6 +49,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ListaDesplegableTheme {
+                // Para meter los datos que iran en cada card
                 val mensajes = listOf(
                     Mensaje(
                         "Linkin Park",
@@ -82,6 +83,7 @@ class MainActivity : ComponentActivity() {
                     ),
                 )
                 Scaffold(
+                    // Barra superior con titulo
                     topBar = {
                         CenterAlignedTopAppBar(
                             modifier = Modifier.height(60.dp),
@@ -107,6 +109,7 @@ class MainActivity : ComponentActivity() {
                             .background(Color.Black),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
+                        // Creamos una carta por cada registro en mensajes
                         itemsIndexed(mensajes) { index, mensaje ->
                             Grupos(mensaje = mensaje, index = index)
 
@@ -114,7 +117,7 @@ class MainActivity : ComponentActivity() {
                                 HorizontalDivider(
                                     modifier = Modifier.padding(horizontal = 16.dp),
                                     thickness = 5.dp,
-                                    color = Color(0xFFFFDE0D).copy(alpha = 0.4f)
+                                    color = Color(0xFFFFDE0D).copy(alpha = 0.8f)
                                 )
                             }
                         }
@@ -132,6 +135,7 @@ data class Mensaje(
     val imagenID: Int
 )
 
+// Creamos card con estructura deseada de lista
 @Composable
 fun Grupos(mensaje: Mensaje, index: Int) {
     var expanded by remember { mutableStateOf(false) }
@@ -175,6 +179,7 @@ fun Grupos(mensaje: Mensaje, index: Int) {
                     fontSize = 14.sp,
                     color = Color.Gray
                 )
+                // Texto a mostrar cuando se hace clic
                 AnimatedVisibility(visible = expanded) {
                     Text(
                         text = mensaje.descLarga,
