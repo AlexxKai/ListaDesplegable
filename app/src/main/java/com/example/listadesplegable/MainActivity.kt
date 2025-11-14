@@ -81,6 +81,7 @@ class MainActivity : ComponentActivity() {
                                 item {
                                     Row(
                                         modifier = Modifier
+                                            .padding(20.dp)
                                             .fillMaxWidth(),
                                         horizontalArrangement = Arrangement.Start,
                                     ) {
@@ -96,16 +97,14 @@ class MainActivity : ComponentActivity() {
                                                 )
                                                 .size(100.dp),
                                         )
-                                        Column {
-                                            Text(
-                                                text = "Linkin Park",
-                                                modifier = Modifier
-                                                    .size(100.dp),
-                                                color = Color.White
-                                            )
-                                        }
+                                        Text(
+                                            text = "Linkin Park",
+                                            modifier = Modifier
+                                                .size(100.dp),
+                                            color = Color.White
+                                        )
                                         var expanded by remember { mutableStateOf(false) }
-                                        Column(Modifier.clickable { expanded = !expanded }) {
+                                        Column (Modifier.clickable { expanded = !expanded }) {
                                             AnimatedVisibility(!expanded) {
                                                 Text(
                                                     text = "Descripción",
@@ -121,6 +120,7 @@ class MainActivity : ComponentActivity() {
                                                         .size(70.dp),
                                                     color = Color.Magenta
                                                 )
+
                                             }
                                         }
                                     }
